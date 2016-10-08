@@ -22,7 +22,7 @@ void NormScene::draw(float tmp, const aiVector3D& rootPos)
 
 unsigned NormScene::getRefreshRate()
 {
-	return this->obj->secsPerTick * 1000;
+	return this->obj->getSecondsPerTick() * 1000;
 }
 
 void NormScene::updateTick()

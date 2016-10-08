@@ -83,9 +83,10 @@ void Scene::display()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	auto tmp = obj->scene_max.x - obj->scene_min.x;
-	tmp = aisgl_max(obj->scene_max.y - obj->scene_min.y, tmp);
-	tmp = aisgl_max(obj->scene_max.z - obj->scene_min.z, tmp);
+	auto scene_max = obj->getSceneMax(), scene_min = obj->getSceneMin();
+	auto tmp = scene_max.x - scene_min.x;
+	tmp = aisgl_max(scene_max.y - scene_min.y, tmp);
+	tmp = aisgl_max(scene_max.z - scene_min.z, tmp);
 	tmp = 1.f / tmp;
 
 	glLightfv(GL_LIGHT0, GL_POSITION, pos);

@@ -15,22 +15,26 @@ using namespace std;
 
 class AssimpObject
 {
-	const aiScene* obj;
-	vector<aiVector3D> vertices;
-	vector<aiVector3D> normals;
-	bool animated;
-	bool bones;
 public:
 	explicit AssimpObject(string filename, bool isAnimated);
 	~AssimpObject();
 	void update(unsigned int tick);
 	void render() const;
 	aiVector3D getObjectPosition() const;
+	aiVector3D getSceneMin() const;
+	aiVector3D getSceneMax() const;
+	float getSecondsPerTick() const;
+	double getAnimationDuration() const;
 
-	double animDuration;
-	float secsPerTick = NULL;
-	aiVector3D scene_min, scene_max;
 private:
 	void loadModel(string fileName);
 	void render(const aiScene* sc, const aiNode* nd) const;
+
+	const aiScene* obj;
+	vector<aiVector3D> vertices;
+	vector<aiVector3D> normals;
+	bool animated, bones;
+	double animationDuration = 0;
+	float secondsInATick = DEFAULT_TICKS_PER_SECOND;
+	aiVector3D sceneMin, sceneMax;
 };

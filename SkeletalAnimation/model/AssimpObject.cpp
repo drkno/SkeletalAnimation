@@ -40,11 +40,11 @@ void AssimpObject::loadModel(string fileName)
 
 	if (animated)
 	{
-		secsPerTick = obj->mAnimations[0]->mTicksPerSecond == 0.0 ?
+		secondsInATick = obj->mAnimations[0]->mTicksPerSecond == 0.0 ?
 						DEFAULT_TICKS_PER_SECOND :
 						1.0 / obj->mAnimations[0]->mTicksPerSecond;
-		animDuration = obj->mAnimations[0]->mDuration;
-		get_bounding_box(obj, &scene_min, &scene_max);
+		animationDuration = obj->mAnimations[0]->mDuration;
+		get_bounding_box(obj, &sceneMin, &sceneMax);
 	}
 }
 
@@ -167,4 +167,24 @@ void AssimpObject::render(const aiScene* scene, const aiNode* node) const
 aiVector3D AssimpObject::getObjectPosition() const
 {
 	return obj->mRootNode->mTransformation * obj->mMeshes[0]->mVertices[0];
+}
+
+aiVector3D AssimpObject::getSceneMin() const
+{
+	return sceneMin;
+}
+
+aiVector3D AssimpObject::getSceneMax() const
+{
+	return sceneMax;
+}
+
+float AssimpObject::getSecondsPerTick() const
+{
+	return secondsInATick;
+}
+
+double AssimpObject::getAnimationDuration() const
+{
+	return animationDuration;
 }

@@ -27,10 +27,10 @@ void BoneScene::draw(float tmp, const aiVector3D& rootPos)
 
 unsigned BoneScene::getRefreshRate()
 {
-	return this->obj->secsPerTick * 1000;
+	return this->obj->getSecondsPerTick() * 1000;
 }
 
 void BoneScene::updateTick()
 {
-	tick = (tick + 1) % static_cast<int>(obj->animDuration);
+	tick = (tick + 1) % static_cast<int>(obj->getAnimationDuration());
 }

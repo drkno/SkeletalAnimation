@@ -40,48 +40,6 @@ void Floor::render() const
 	}
 	glEnd();
 	glEnable(GL_LIGHTING);
-	glPushMatrix();
+	glPopMatrix();
 }
 
-void Floor::cubes()
-{
-	for (auto i = 0; i < 3; i++)
-	{
-		glPushMatrix();
-		glTranslatef(10, 2, (18 * i) + 1);
-		glScalef(15, 2, 3);
-		glutSolidCube(1.0);
-		glPopMatrix();
-	}
-}
-
-void Floor::trees(double scale, unsigned int tick)
-{
-	for (auto i = 0; i < 5; i++)
-	{
-		auto config = configs[i];
-		auto shiftValue = tick * 0.2 - 85 * static_cast<int>(tick * 0.2 / 85);
-		glPushMatrix();
-		glTranslatef(config[0], 0, config[1] - shiftValue);
-		glScalef(config[2], config[2], config[2]);
-
-		glPushMatrix();
-		glScalef(3.0 * scale, 6.0 * scale, 3.0 * scale);
-		glPushMatrix();
-		glRotatef(-90.0, 1, 0, 0);
-		glutSolidCylinder(1.0, 1.0, 60, 60);
-		glPopMatrix();
-		glPopMatrix();
-
-		glPushMatrix();
-		glTranslatef(0, 6 * scale, 0);
-		glScalef(7.0 * scale, 30.0 * scale, 7.0 * scale);
-		glPushMatrix();
-		glRotatef(-90.0, 1, 0, 0);
-		glutSolidCone(1.0, 1.0, 60, 60);
-		glPopMatrix();
-		glPopMatrix();
-
-		glPopMatrix();
-	}
-}

@@ -9,6 +9,4 @@ class Floor
 public:
 	Floor();
 	void render() const;
-	void cubes();
-	void trees(double scale, unsigned int tick);
 };
