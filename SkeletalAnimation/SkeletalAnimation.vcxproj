@@ -146,10 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AssimpObject.cpp" />
+    <ClCompile Include="core\scenes\BoneScene.cpp" />
+    <ClCompile Include="core\OpenGLManager.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SceneObject.cpp" />
-    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="model\AssimpObject.cpp" />
+    <ClCompile Include="model\Floor.cpp" />
+    <ClCompile Include="core\Scene.cpp" />
+    <ClCompile Include="core\scenes\NormScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bvh\Dance.bvh" />
@@ -180,10 +183,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssimpObject.h" />
-    <ClInclude Include="AssimpExtensions.h" />
-    <ClInclude Include="SceneObject.h" />
-    <ClInclude Include="Stage.h" />
+    <ClInclude Include="core\scenes\BoneScene.h" />
+    <ClInclude Include="core\OpenGLManager.h" />
+    <ClInclude Include="model\AssimpObject.h" />
+    <ClInclude Include="core\AssimpExtensions.h" />
+    <ClInclude Include="model\Floor.h" />
+    <ClInclude Include="core\Scene.h" />
+    <ClInclude Include="core\scenes\NormScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

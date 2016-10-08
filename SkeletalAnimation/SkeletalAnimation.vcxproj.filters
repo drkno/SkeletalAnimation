@@ -15,16 +15,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Stage.cpp">
+    <ClCompile Include="model\AssimpObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\OpenGLManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SceneObject.cpp">
+    <ClCompile Include="core\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AssimpObject.cpp">
+    <ClCompile Include="core\scenes\NormScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\scenes\BoneScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="model\Floor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -57,16 +66,25 @@
     <None Include="objects\x\wuson.x" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Stage.h">
+    <ClInclude Include="model\AssimpObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SceneObject.h">
+    <ClInclude Include="core\OpenGLManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AssimpExtensions.h">
+    <ClInclude Include="core\AssimpExtensions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AssimpObject.h">
+    <ClInclude Include="core\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\scenes\NormScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\scenes\BoneScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model\Floor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

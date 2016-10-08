@@ -1,27 +1,28 @@
-#include "Stage.h"
+#include "Floor.h"
 #include <GL/gl.h>
 
 auto configs = new float[5][3]{
-	{ -21, 20, 0.9f},
-	{ 3,41, 0.7f},
-	{ -14,35, 1.1f },
-	{ -19, 20, 1.0f},
+	{-21, 20, 0.9f},
+	{3,41, 0.7f},
+	{-14,35, 1.1f},
+	{-19, 20, 1.0f},
 	{-3, 61, 0.75f}
 };
 
-Stage::Stage()
+Floor::Floor()
 {
 }
 
-//-- Ground Plane --------------------------------------------------------
-void Stage::floor()
+void Floor::render() const
 {
+	glPushMatrix();
 	glDisable(GL_LIGHTING);
-	glColor3f(0.7, 0.7,  0.7);
+	glColor3f(0.7, 0.7, 0.7);
 
 	glBegin(GL_QUADS);
 
-	for (int x = -100; x < 100; x++) {
+	for (int x = -100; x < 100; x++)
+	{
 		for (int y = -100; y < 100; y++)
 		{
 			glNormal3f(0, 1, 0);
@@ -39,23 +40,25 @@ void Stage::floor()
 	}
 	glEnd();
 	glEnable(GL_LIGHTING);
+	glPushMatrix();
 }
 
-void Stage::cubes()
+void Floor::cubes()
 {
-	for (auto i = 0; i < 3; i++) {
+	for (auto i = 0; i < 3; i++)
+	{
 		glPushMatrix();
-		glTranslatef(10, 2, (18*i) + 1);
+		glTranslatef(10, 2, (18 * i) + 1);
 		glScalef(15, 2, 3);
 		glutSolidCube(1.0);
 		glPopMatrix();
 	}
 }
 
-void Stage::trees(double scale, unsigned int tick)
+void Floor::trees(double scale, unsigned int tick)
 {
-
-	for (auto i = 0; i < 5; i++) {
+	for (auto i = 0; i < 5; i++)
+	{
 		auto config = configs[i];
 		auto shiftValue = tick * 0.2 - 85 * static_cast<int>(tick * 0.2 / 85);
 		glPushMatrix();

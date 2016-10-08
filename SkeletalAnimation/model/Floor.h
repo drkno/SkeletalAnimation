@@ -4,12 +4,11 @@
 #include <GL/freeglut.h>
 #include <string>
 
-class Stage
+class Floor
 {
 public:
-	Stage();
-	void floor();
+	Floor();
+	void render() const;
 	void cubes();
 	void trees(double scale, unsigned int tick);
 };
-
