@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="model\BoxingRing.cpp" />
     <ClCompile Include="core\scenes\BoneScene.cpp" />
     <ClCompile Include="core\OpenGLManager.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="model\Floor.cpp" />
     <ClCompile Include="core\Scene.cpp" />
     <ClCompile Include="core\scenes\NormScene.cpp" />
+    <ClCompile Include="model\Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bvh\Dance.bvh" />
@@ -173,6 +175,7 @@
     <None Include="objects\3ds\Car.3ds" />
     <None Include="objects\3ds\Man.3ds" />
     <None Include="objects\bvh\01_01.bvh" />
+    <None Include="objects\bvh\Boxing.bvh" />
     <None Include="objects\bvh\Dance.bvh" />
     <None Include="objects\bvh\Test.bvh" />
     <None Include="objects\mtl\bird.mtl" />
@@ -183,6 +186,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="model\BoxingRing.h" />
     <ClInclude Include="core\scenes\BoneScene.h" />
     <ClInclude Include="core\OpenGLManager.h" />
     <ClInclude Include="model\AssimpObject.h" />
@@ -190,6 +194,7 @@
     <ClInclude Include="model\Floor.h" />
     <ClInclude Include="core\Scene.h" />
     <ClInclude Include="core\scenes\NormScene.h" />
+    <ClInclude Include="model\Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

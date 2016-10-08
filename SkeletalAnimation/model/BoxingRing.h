@@ -5,13 +5,13 @@
 #include <string>
 #include <GL/gl.h>
 
-class Floor
+class BoxingRing
 {
 public:
-	virtual ~Floor()
+	virtual ~BoxingRing()
 	{
 	}
 
-	Floor();
 	virtual void render() const;
 };
+

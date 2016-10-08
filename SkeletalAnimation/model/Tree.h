@@ -5,13 +5,12 @@
 #include <string>
 #include <GL/gl.h>
 
-class Floor
+class Tree
 {
 public:
-	virtual ~Floor()
-	{
-	}
-
-	Floor();
-	virtual void render() const;
+	Tree(int, int);
+	void render();
+private:
+	int angle, distance;
 };
+

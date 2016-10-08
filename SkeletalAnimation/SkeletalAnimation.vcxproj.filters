@@ -36,6 +36,12 @@
     <ClCompile Include="model\Floor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="model\BoxingRing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="model\Tree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -64,6 +70,7 @@
     <None Include="objects\mtl\Noodle.mtl" />
     <None Include="objects\x\dwarf.x" />
     <None Include="objects\x\wuson.x" />
+    <None Include="objects\bvh\Boxing.bvh" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="model\AssimpObject.h">
@@ -85,6 +92,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="model\Floor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model\BoxingRing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model\Tree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

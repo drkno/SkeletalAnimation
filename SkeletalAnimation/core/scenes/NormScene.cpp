@@ -1,21 +1,23 @@
 #include "NormScene.h"
-#include "../../model/AssimpObject.h"
 
 NormScene::NormScene()
 {
-	this->obj = new AssimpObject("objects/bvh/01_01.bvh", true);
+	this->obj = new AssimpObject("objects\\bvh\\Boxing.bvh", true);
+	this->boxingRing = new BoxingRing();
 }
 
 NormScene::~NormScene()
 {
+	delete this->boxingRing;
 }
 
 void NormScene::draw(float tmp, const aiVector3D& rootPos)
 {
-	gluLookAt(4, 1.5, -2, rootPos.x * tmp, rootPos.y * tmp, rootPos.z * tmp, 0, 1, 0);
+	gluLookAt(4, 1.0, -2, rootPos.x * tmp, rootPos.y * tmp, rootPos.z * tmp, 0, 1, 0);
 	glScalef(tmp, tmp, tmp);
 	glTranslatef(-scene_center.x, -scene_center.y, -scene_center.z);
 	obj->render();
+	boxingRing->render();
 }
 
 unsigned NormScene::getRefreshRate()
@@ -25,7 +27,7 @@ unsigned NormScene::getRefreshRate()
 
 void NormScene::updateTick()
 {
-	tick = (tick + 1) % 2130;
+	tick = (tick + 1) % static_cast<int>(this->obj->getAnimationDuration());
 }
 
 string NormScene::getTitle()

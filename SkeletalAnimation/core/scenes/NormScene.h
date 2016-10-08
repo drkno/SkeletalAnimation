@@ -1,6 +1,6 @@
 #pragma once
 #include "../Scene.h"
-#include "../../model/AssimpObject.h"
+#include "../../model/BoxingRing.h"
 
 class NormScene : public Scene
 {
@@ -11,4 +11,5 @@ public:
 	unsigned getRefreshRate() override;
 	void updateTick() override;
 	string getTitle() override;
+	BoxingRing* boxingRing;
 };
