@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include <GL/freeglut.h>
 
-Scene::Scene(): obj(nullptr), tick(0)
+Scene::Scene(): obj(nullptr), tick(0), window(0)
 {
 	floor = new Floor();
 }
@@ -44,9 +44,9 @@ int Scene::getHeight() const
 	return 600;
 }
 
-string Scene::getTitle() const
+string Scene::getTitle()
 {
-	return "Skeletal Animation";
+	throw "This should have been overriden.";
 }
 
 unsigned Scene::getRefreshRate()
@@ -75,8 +75,19 @@ void Scene::update()
 	glutPostRedisplay();
 }
 
+void Scene::setWindow(int window)
+{
+	this->window = window;
+}
+
 void Scene::display()
 {
+	glutSetWindow(this->window);
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 	float pos[4] = { 50, 50, 50, 1 };
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

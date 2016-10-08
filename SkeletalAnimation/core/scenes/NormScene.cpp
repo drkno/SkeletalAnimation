@@ -16,8 +16,6 @@ void NormScene::draw(float tmp, const aiVector3D& rootPos)
 	glScalef(tmp, tmp, tmp);
 	glTranslatef(-scene_center.x, -scene_center.y, -scene_center.z);
 	obj->render();
-	//stage->floor();
-	//stage->cubes();
 }
 
 unsigned NormScene::getRefreshRate()
@@ -28,4 +26,9 @@ unsigned NormScene::getRefreshRate()
 void NormScene::updateTick()
 {
 	tick = (tick + 1) % 2130;
+}
+
+string NormScene::getTitle()
+{
+	return "BVH Skeletel Animation";
 }

@@ -9,5 +9,6 @@ public:
 	void draw(float, const aiVector3D&) override;
 	unsigned getRefreshRate() override;
 	void updateTick() override;
+	string getTitle() override;
 };
 

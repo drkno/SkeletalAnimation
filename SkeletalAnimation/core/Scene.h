@@ -15,19 +15,21 @@ protected:
 	Floor* floor;
 	unsigned int tick;
 	aiVector3D scene_center;
+	int window;
 	virtual void updateTick();
 	virtual void draw(float, const aiVector3D&);
 
 public:
 	virtual ~Scene();
 	void display();
-	void special(int, int, int) const;
-	void key(unsigned char, int, int) const;
+	virtual void special(int, int, int) const;
+	virtual void key(unsigned char, int, int) const;
 	int getWidth() const;
 	int getHeight() const;
-	string getTitle() const;
+	virtual string getTitle();
 	virtual unsigned getRefreshRate();
 	void initialise() const;
 	void update();
+	void setWindow(int window);
 };
 

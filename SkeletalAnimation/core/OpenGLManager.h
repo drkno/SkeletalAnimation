@@ -1,7 +1,6 @@
 #pragma once
 
 #include <GL/freeglut.h>
-#include <string>
 #include "Scene.h"
 
 #define WINDOW_XPOS 50
@@ -12,10 +11,9 @@ using namespace std;
 class OpenGLManager
 {
 public:
-	static void run(int, char**, Scene*);
+	static void run(int, char**, vector<Scene*>);
 
 private:
-	static Scene* windowScene;
 	static void windowDisplayCallback();
 	static void displayRefreshCallback(int);
 	static void windowReshapeCallback(GLint, GLint);

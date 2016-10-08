@@ -20,9 +20,6 @@ void BoneScene::draw(float tmp, const aiVector3D& rootPos)
 	glRotatef(90, 1, 0, 0);		// rotate onto correct plane
 	obj->render();
 	glPopMatrix();
-
-	//stage->floor();
-	//stage->trees(tmp, tick);
 }
 
 unsigned BoneScene::getRefreshRate()
@@ -33,4 +30,9 @@ unsigned BoneScene::getRefreshRate()
 void BoneScene::updateTick()
 {
 	tick = (tick + 1) % static_cast<int>(obj->getAnimationDuration());
+}
+
+string BoneScene::getTitle()
+{
+	return "Rigged Character Model Skeletel Animation";
 }

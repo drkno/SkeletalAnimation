@@ -7,6 +7,10 @@
 class Floor
 {
 public:
+	virtual ~Floor()
+	{
+	}
+
 	Floor();
-	void render() const;
+	virtual void render() const;
 };

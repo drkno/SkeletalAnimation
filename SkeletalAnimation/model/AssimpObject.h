@@ -1,11 +1,12 @@
 ﻿#pragma once
 #include <vector>
+#include <string>
+#include <iostream>
 #include <assimp/scene.h>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include <assimp/cimport.h>
 #include <assimp/types.h>
-#include <iostream>
 #include <GL/freeglut.h>
 #include "../core/AssimpExtensions.h"
 
