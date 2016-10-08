@@ -1,0 +1,146 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration  2.1.10.1214
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+
+newmtl skin
+Ka 0 0 0
+Kd 0.843137 0.745098 0.521569
+Ks 0 0 0
+illum 2
+Ns 4
+
+newmtl teeth
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl tounge
+Ka 0 0 0
+Kd 0.65098 0.27451 0.0509804
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl helmet_stripes
+Ka 0 0 0
+Kd 0.32549 0.32549 0.65098
+Ks 0 0 0
+illum 2
+Ns 20.393
+
+newmtl helmet
+Ka 0 0 0
+Kd 0.921569 0.921569 0.960784
+Ks 0 0 0
+illum 2
+Ns 20.393
+
+newmtl Helmet_middle
+Ka 0 0 0
+Kd 0.501961 0.501961 0.752941
+Ks 0 0 0
+illum 2
+Ns 20.393
+
+newmtl brow
+Ka 0 0 0
+Kd 0.0588235 0.00392157 0.121569
+Ks 0.0441176 0.00294118 0.0911765
+illum 2
+Ns 17.1484
+
+newmtl clip
+Ka 0 0 0
+Kd 0.807843 0 0
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl inner_button
+Ka 0 0 0
+Kd 0.501961 0.501961 0.752941
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl button
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl lashes
+Ka 0 0 0
+Kd 0 0 0
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl inner_eye
+Ka 0 0 0
+Kd 1 0.501961 0.501961
+Ks 0.2 0.100392 0.100392
+illum 2
+Ns 8
+
+newmtl nostril
+Ka 0 0 0
+Kd 0.168627 0.0823529 0
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl skin_shade
+Ka 0 0 0
+Kd 0.768627 0.623529 0.290196
+Ks 0.0384314 0.0311765 0.0145098
+illum 2
+Ns 8
+
+newmtl mouth
+Ka 0 0 0
+Kd 0.34902 0 0
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl shirt_light
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl shirt_dark
+Ka 0 0 0
+Kd 0.345098 0.345098 0.345098
+Ks 0.134588 0.134588 0.134588
+illum 2
+Ns 4
+
+newmtl innersleeve
+Ka 0 0 0
+Kd 0.192157 0.192157 0.192157
+Ks 0 0 0
+illum 2
+Ns 8
+
+newmtl shoe
+Ka 0 0 0
+Kd 0.501961 0.25098 0
+Ks 0 0 0
+illum 2
+Ns 4
+
+newmtl shorts
+Ka 0 0 0
+Kd 0.345098 0.345098 0.345098
+Ks 0.134588 0.134588 0.134588
+illum 2
+Ns 4

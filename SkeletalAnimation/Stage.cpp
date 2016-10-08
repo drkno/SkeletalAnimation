@@ -1,86 +1,84 @@
 #include "Stage.h"
+#include <GL/gl.h>
+
+auto configs = new float[5][3]{
+	{ -21, 20, 0.9f},
+	{ 3,41, 0.7f},
+	{ -14,35, 1.1f },
+	{ -19, 20, 1.0f},
+	{-3, 61, 0.75f}
+};
 
 Stage::Stage()
 {
-	float grey[4] = { 0.2, 0.2, 0.2, 1.0 };
-	float white[4] = { 1.0, 1.0, 1.0, 1.0 };
-
-	glMaterialfv(GL_FRONT, GL_SPECULAR, white);
-	glMaterialf(GL_FRONT, GL_SHININESS, 100);
-	cameraAngle = 1;
-	cameraViewAngle = 0;
-}
-
-void Stage::setAngle(int angle)
-{
-	cameraAngle = angle;
-}
-
-void Stage::draw()
-{
-	floor();
-}
-
-void Stage::changeCameraViewAngle(int change)
-{
-	cameraAngle = 0;
-	cameraViewAngle -= change;
-	if (cameraViewAngle < 0) cameraViewAngle = 359;
-	if (cameraViewAngle >= 360) cameraViewAngle = 0;
-}
-
-void Stage::drawCamera()
-{
-	const float CDR = 3.14159265 / 180.0;		//Degrees to radians conversion factor
-
-	switch (cameraAngle)
-	{
-	default:
-	case 0: break;
-	case 1: cameraViewAngle = 45; break;
-	case 2: cameraViewAngle = 135; break;
-	case 3: cameraViewAngle = 225; break;
-	case 4: cameraViewAngle = 315; break;
-	}
-
-	float x = 392.0 * cosf((float)cameraViewAngle * CDR);
-	float z = 196.0 * sinf((float)cameraViewAngle * CDR);
-	gluLookAt(x, 50, z, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
 //-- Ground Plane --------------------------------------------------------
 void Stage::floor()
 {
-	float white[4] = { 1., 1., 1., 1. };
-	float black[4] = { 0 };
-	float green[4] = { 0.0, 1.0, 0.0, 1.0 };
+	glDisable(GL_LIGHTING);
+	glColor3f(0.7, 0.7,  0.7);
 
-	glColor4f(0.048, 0.109, 0.048, 1.0);
-	glNormal3f(0.0, 1.0, 0.0);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, black);  //No specular reflections from the floor.
-
-	//The floor is made up of several tiny squares on a 200x200 grid. Each square has a unit size.
 	glBegin(GL_QUADS);
-	for (int i = -HALF_WIDTH; i < HALF_WIDTH; i++)
-	{
-		for (int j = -HALF_DEPTH; j < HALF_DEPTH; j++)
+
+	for (int x = -100; x < 100; x++) {
+		for (int y = -100; y < 100; y++)
 		{
-			glVertex3f(i, 0.0, j);
-			glVertex3f(i, 0.0, j + 1);
-			glVertex3f(i + 1, 0.0, j + 1);
-			glVertex3f(i + 1, 0.0, j);
+			glNormal3f(0, 1, 0);
+			glVertex3f(x, 0, y);
+
+			glNormal3f(0, 1, 0);
+			glVertex3f(x, 0, y + 1);
+
+			glNormal3f(0, 1, 0);
+			glVertex3f(x + 1, 0, y + 1);
+
+			glNormal3f(0, 1, 0);
+			glVertex3f(x + 1, 0, y);
 		}
-		if (i < 88 && i > 48) glColor4f(0.1, 0.1, 0.1, 1.0);
-		else glColor4f(0.048, 0.109, 0.048, 1.0);
 	}
 	glEnd();
+	glEnable(GL_LIGHTING);
+}
 
-	glBegin(GL_POLYGON);
-	glVertex3f(-4 * HALF_WIDTH, -0.01, -4 * HALF_DEPTH);
-	glVertex3f(4 * HALF_WIDTH, -0.01, -4 * HALF_DEPTH);
-	glVertex3f(4 * HALF_WIDTH, -0.01, 4 * HALF_DEPTH);
-	glVertex3f(-4 * HALF_WIDTH, -0.01, 4 * HALF_DEPTH);
-	glEnd();
+void Stage::cubes()
+{
+	for (auto i = 0; i < 3; i++) {
+		glPushMatrix();
+		glTranslatef(10, 2, (18*i) + 1);
+		glScalef(15, 2, 3);
+		glutSolidCube(1.0);
+		glPopMatrix();
+	}
+}
 
-	glMaterialfv(GL_FRONT, GL_SPECULAR, white);  //Enable specular reflections for remaining objects
+void Stage::trees(double scale, unsigned int tick)
+{
+
+	for (auto i = 0; i < 5; i++) {
+		auto config = configs[i];
+		auto shiftValue = tick * 0.2 - 85 * static_cast<int>(tick * 0.2 / 85);
+		glPushMatrix();
+		glTranslatef(config[0], 0, config[1] - shiftValue);
+		glScalef(config[2], config[2], config[2]);
+
+		glPushMatrix();
+		glScalef(3.0 * scale, 6.0 * scale, 3.0 * scale);
+		glPushMatrix();
+		glRotatef(-90.0, 1, 0, 0);
+		glutSolidCylinder(1.0, 1.0, 60, 60);
+		glPopMatrix();
+		glPopMatrix();
+
+		glPushMatrix();
+		glTranslatef(0, 6 * scale, 0);
+		glScalef(7.0 * scale, 30.0 * scale, 7.0 * scale);
+		glPushMatrix();
+		glRotatef(-90.0, 1, 0, 0);
+		glutSolidCone(1.0, 1.0, 60, 60);
+		glPopMatrix();
+		glPopMatrix();
+
+		glPopMatrix();
+	}
 }
