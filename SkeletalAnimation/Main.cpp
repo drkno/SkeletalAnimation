@@ -16,12 +16,22 @@ int main(int argc, char* argv[]) {
 		<< endl
 		<< "This program and its source code will be avalible at" << endl
 		<< "http://github.com/mrkno/SkeletelAnimation when marking" << endl
-		<< "is complete." << endl;
+		<< "is complete." << endl << endl;
 
 	vector<Scene*> scenes;
 	scenes.push_back(new NormScene());
 	scenes.push_back(new BoneScene());
 
-	OpenGLManager::run(argc, argv, scenes);
+	try {
+		OpenGLManager::run(argc, argv, scenes);
+	}
+	catch(string e)
+	{
+		cerr << e << endl;
+	}
+	catch(void*)
+	{
+		cerr << "An unknown error occurred (code/compilation/dependency error?)" << endl;
+	}
 	return 0;
 }

@@ -25,7 +25,9 @@ void AssimpObject::loadModel(string fileName)
 	obj = aiImportFile(fileName.c_str(), aiProcessPreset_TargetRealtime_MaxQuality);
 	if (obj == nullptr)
 	{
-		throw "Model \"" + fileName + "\" could not be loaded.";
+		auto err = "Model \"" + fileName + "\" could not be loaded.";
+		cerr << "ERR|CRITICAL\t" << err << endl;
+		throw err;
 	}
 
 	for (auto i = 0; i < obj->mNumMeshes; i++)
