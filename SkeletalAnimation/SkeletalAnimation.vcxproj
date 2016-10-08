@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimationBones.cpp" />
+    <ClCompile Include="BoneObject.cpp" />
     <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="Stage.cpp" />
   </ItemGroup>
@@ -176,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="assimp_extras.h" />
+    <ClInclude Include="BoneObject.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="Stage.h" />
   </ItemGroup>

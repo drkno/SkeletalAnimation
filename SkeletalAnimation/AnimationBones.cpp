@@ -189,7 +189,6 @@ void display()
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	//gluLookAt(0, 0, 3, 0, 0, -5, 0, 1, 0);
 	glLightfv(GL_LIGHT0, GL_POSITION, pos);
 
 	// scale the whole asset to fit into our view frustum 
@@ -197,10 +196,29 @@ void display()
 	tmp = aisgl_max(scene_max.y - scene_min.y, tmp);
 	tmp = aisgl_max(scene_max.z - scene_min.z, tmp);
 	tmp = 1.f / tmp;
+
+
+	auto total = 0;
+	auto x = 0.0, y = 0.0, z = 0.0;
+	for (auto i = 0; i < person->mNumMeshes; i++)
+	{
+		for (auto j = 0; j < person->mMeshes[i]->mNumVertices; j++)
+		{
+			total++;
+			x += person->mMeshes[i]->mVertices[j].x;
+			y += person->mMeshes[i]->mVertices[j].y;
+			z += person->mMeshes[i]->mVertices[j].z;
+		}
+	}
+	x /= total;
+	y /= total;
+	z /= total;
+	gluLookAt(0, 0, 3, 0, 0, -5, 0, 1, 0);
+	//gluLookAt(0, 0, 3, x, 0, z, 0, 1, 0);
+
+	glTranslatef(-scene_center.x, -scene_center.y, -scene_center.z);
 	glScalef(tmp, tmp, tmp);
 
-	// center the model
-	glTranslatef(-scene_center.x, -scene_center.y, -scene_center.z);
 
 	
 	
@@ -214,10 +232,12 @@ void display()
 	//render(thing, thing->mRootNode);
 	glPopMatrix();
 
+	
+
 	auto verticies = person->mMeshes[0]->mVertices[0];
 	cout << verticies.x << " " << verticies.y << " " << verticies.z << endl;
 //	verticies *= tmp;
-	gluLookAt(0, 0, 15, verticies.x, verticies.y, verticies.z, 0, 1, 0);
+	//gluLookAt(0, 0, 15, verticies.x, verticies.y, verticies.z, 0, 1, 0);
 
 	glutSwapBuffers();
 }
@@ -238,6 +258,5 @@ int main(int argc, char** argv)
 	glutMainLoop();
 
 	aiReleaseImport(person);
-	//aiReleaseImport(thing);
 	delete stage;
 }
