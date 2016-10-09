@@ -7,7 +7,7 @@ Compiling:
 ----
 On Windows it will compile in Visual Studio 2015. Open the .sln file and make sure the nupengl and assimp packages from nuget are installed and it should run.
 
-Untested on Linux, but as has no Windows specific features it should run fine.
+Untested on Linux, but as it has no Windows specific features it should run fine.
 
 Running:
 ----
@@ -15,7 +15,7 @@ Ensure that the objects directory is located in the current working directory (u
 
 Why Is There Only One Program?
 ----
-Yes, the assignment called for two but instead I made them both run simaltaneously from the same executable.
+Yes, the assignment called for two programs, but instead I made them both run simaltaneously from the same executable.
 
 License:
 ----
