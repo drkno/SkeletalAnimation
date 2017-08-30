@@ -9,9 +9,14 @@ A+ (100%). "Excellent implementations of character animation algorithms. The cod
 
 Compiling:
 ----
-On Windows it will compile in Visual Studio 2015. Open the .sln file and make sure the nupengl and assimp packages from nuget are installed and it should run.
 
-Untested on Linux, but as it has no Windows specific features it should run fine.
+```bash
+mkdir build
+cd build
+cmake ..
+make
+./SkeletalAnimation
+```
 
 Running:
 ----

@@ -2,7 +2,7 @@
 
 NormScene::NormScene()
 {
-	this->obj = new AssimpObject("objects\\bvh\\Boxing.bvh", true);
+	this->obj = new AssimpObject("objects/bvh/Boxing.bvh", true);
 	this->boxingRing = new BoxingRing();
 }
 

@@ -3,7 +3,6 @@
 #include <math.h>
 #include <GL/freeglut.h>
 #include <string>
-#include <GL/gl.h>
 
 class BoxingRing
 {
