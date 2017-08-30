@@ -6,7 +6,6 @@
 #include <assimp/scene.h>
 #include <assimp/cimport.h>
 #include <assimp/types.h>
-#include <GL/gl.h>
 #include <assimp/matrix4x4.h>
 
 using namespace std;
